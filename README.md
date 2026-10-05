@@ -1,4 +1,4 @@
-# ShopEasy - E-Commerce Product Page
+# E-Commerce Product Page
 
 A simple online store built with React + Vite. It shows real products from the DummyJSON API. You can search, filter, sort, view product details and use a shopping cart.
 
@@ -22,7 +22,7 @@ React.js, Vite, JavaScript, HTML, CSS, Fetch API
 
 ## How to Run
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/shreya-pandey2006/ecommerce-product-page.git
 cd ecommerce-product-page
 npm install
 npm run dev
