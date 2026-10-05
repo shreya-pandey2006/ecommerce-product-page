@@ -1,16 +1,33 @@
-# React + Vite
+# ShopEasy - E-Commerce Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple online store built with React + Vite. It shows real products from the DummyJSON API. You can search, filter, sort, view product details and use a shopping cart.
 
-Currently, two official plugins are available:
+## Features
+- Products loaded from the API (nothing is hardcoded)
+- Search by product name or category
+- Category filter and sorting (price, rating)
+- Product details page with images, brand, tags and quantity
+- Cart with add, remove, quantity change and total price
+- Cart is saved in localStorage
+- Loading, error (with Retry) and empty states
+- Works on mobile, tablet and desktop
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+React.js, Vite, JavaScript, HTML, CSS, Fetch API
 
-## React Compiler
+## API Used
+- https://dummyjson.com/products
+- https://dummyjson.com/products/categories
+- https://dummyjson.com/products/{id}
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How to Run
+```bash
+git clone <your-repo-link>
+cd ecommerce-product-page
+npm install
+npm run dev
+```
+Open http://localhost:5173 in your browser.
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Author
+Shreya Pandey
