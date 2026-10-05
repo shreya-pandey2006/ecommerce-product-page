@@ -1,9 +1,6 @@
-# ShopEasy - E-Commerce Product Page
+#  E-Commerce Product Page
 
 A simple online store built with React + Vite. It shows real products from the DummyJSON API. You can search, filter, sort, view product details and use a shopping cart.
-
-## Live Demo
--`ecommerce-product-page-delta-six.vercel.app`
 
 ## Features
 - Products loaded from the API (nothing is hardcoded)
