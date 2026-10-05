@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getProductById } from "../services/productApi";
-
 function ProductDetails({ productId, onBack, onAddToCart }) {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);

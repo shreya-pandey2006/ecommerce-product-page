@@ -29,7 +29,6 @@ function Cart({ cartItems, onClose, onIncrease, onDecrease, onRemove }) {
             ))}
           </div>
         )}
-
         <div className="cart-footer">
           <p className="cart-total">Total: ${total.toFixed(2)}</p>
           <button className="btn checkout-btn">Checkout</button>

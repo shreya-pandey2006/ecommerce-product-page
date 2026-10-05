@@ -1,40 +1,30 @@
 import { useEffect, useState } from "react";
-import { getProducts, getCategories } from "../services/productApi";
-import Filters from "../components/Filters";
+import { getProducts } from "../services/productApi";
 import ProductList from "../components/ProductList";
-function Home({ onAddToCart, onViewProduct }) {
+function Home({ onAddToCart, onViewProduct, search, category, sortBy }) {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
-  const [sortBy, setSortBy] = useState("default");
 
   useEffect(() => { async function loadData() {
-  try {
-  const productData = await getProducts(); 
-  setProducts(productData);
-  try {
-    const categoryData = await getCategories();
-    setCategories(categoryData);
-  } catch (err) {
-    console.error("Categories failed:", err);
-  }
-} catch (err) {
-  console.error("Fetch failed:", err);
-  setError(true);
-}
+      try {
+        const productData = await getProducts();
+        setProducts(productData);
+      } catch (err) {
+        console.error("Fetch failed:", err);
+        setError(true);
+      }
       setLoading(false);
     }
     loadData();
   }, [retryCount]);
 
   function handleRetry() {
-    setError(false);  setLoading(true); setRetryCount(retryCount + 1);
+    setError(false);
+    setLoading(true);
+    setRetryCount(retryCount + 1); 
   }
-
   const searchText = search.toLowerCase();
   let visibleProducts = products.filter((product) => {
     const matchesSearch = product.title.toLowerCase().includes(searchText) || product.category.toLowerCase().includes(searchText);
@@ -53,23 +43,17 @@ function Home({ onAddToCart, onViewProduct }) {
   return (
     <main className="container">
       <section className="store-heading">
-        <h2>Shop our collection</h2>
+        <h2>Shop our collection</h2> 
         <p>Browse products, search by name and add your favourites to the cart.</p>
       </section>
 
-      <Filters
-        search={search} onSearchChange={setSearch} category={category} onCategoryChange={setCategory} categories={categories} sortBy={sortBy} onSortChange={setSortBy} />
       {loading && <p className="message">Loading products...</p>}
       {error && (
-        <div className="message">
-          <p>Unable to load products. Please try again.</p>
-          <button className="btn" onClick={handleRetry}>Retry</button>
-        </div>
+        <div className="message"> <p>Unable to load products. Please try again.</p> 
+        <button className="btn" onClick={handleRetry}>Retry</button> </div>
       )}
 
-      {!loading && !error && (
-        <ProductList products={visibleProducts} onAddToCart={onAddToCart} onViewProduct={onViewProduct} />
-      )}
+      {!loading && !error && ( <ProductList products={visibleProducts} onAddToCart={onAddToCart} onViewProduct={onViewProduct} /> )}
     </main>
   );
 }
