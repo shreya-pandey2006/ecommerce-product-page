@@ -3,7 +3,7 @@
 A simple online store built with React + Vite. It shows real products from the DummyJSON API. You can search, filter, sort, view product details and use a shopping cart.
 
 ## Live Demo
-[Click here to open the live site](ecommerce-product-page-delta-six.vercel.app)
+`ecommerce-product-page-delta-six.vercel.app`
 
 ## Features
 - Products loaded from the API (nothing is hardcoded)
